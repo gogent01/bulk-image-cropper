@@ -13,7 +13,7 @@ def parseArguments():
         action = 'store',
         dest = 'input_dir', 
         default = Path(script_directory / 'input').resolve(),
-        help = 'A path to a directory with images to crop.'
+        help = 'A path to a directory with images to crop. Defaults to an \'input\' folder in the script location.'
     )
     parser.add_argument(
         '-o', 
@@ -21,7 +21,7 @@ def parseArguments():
         action = 'store',
         dest = 'output_dir', 
         default = Path(script_directory / 'output').resolve(),
-        help = 'A path to an output directory to place cropped images.'
+        help = 'A path to an output directory to place cropped images. Defaults to an \'output\' folder in the script location.'
     )
     parser.add_argument(
         '-p', 
@@ -30,7 +30,7 @@ def parseArguments():
         dest = 'padding_px', 
         type = int,
         default = 10,
-        help = 'A width of a white background padding around an object on an image in pixels.'
+        help = 'A width of a white background padding around an object in pixels. Defaults to 10 px.'
     )
     parser.add_argument(
         '-e', 
@@ -41,7 +41,7 @@ def parseArguments():
         nargs = '*',
         choices = ['png', 'jpg', 'tiff'],
         default = ['png', 'jpg', 'tiff'],
-        help = 'Extensions of images to crop.'
+        help = 'Extensions of images to crop. Defaults to png, jpg and tiff altogether.'
     )
 
     args = parser.parse_args()
